@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Koordinatennetz zeichnen</title>
+	<style>
+		canvas {
+			border: 1px solid black;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="canvas" width="400" height="400"></canvas>
+
+	<script>
+		// Zugriff auf das Canvas-Element
+		var canvas = document.getElementById("canvas");
+
+		// Zugriff auf den Kontext des Canvas-Elements
+		var context = canvas.getContext("2d");
+
+		// Breite und Höhe des Canvas-Elements
+		var canvasWidth = canvas.width;
+		var canvasHeight = canvas.height;
+
+		// Abstand zwischen den Linien
+		var step = 20;
+
+		// Vertikale Linien zeichnen
+		for (var x = 0; x <= canvasWidth; x += step) {
+			context.moveTo(x, 0);
+			context.lineTo(x, canvasHeight);
+		}
+
+		// Horizontale Linien zeichnen
+		for (var y = 0; y <= canvasHeight; y += step) {
+			context.moveTo(0, y);
+			context.lineTo(canvasWidth, y);
+		}
+
+		// Gitternetz zeichnen
+		context.strokeStyle = "gray";
+		context.stroke();
+	</script>
+</body>
+</html>
